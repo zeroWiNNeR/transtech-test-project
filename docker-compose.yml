@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+
+  db:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: transtech_db
+    image: zerowinner/transtech-db
+    restart: always
+    ports:
+      - 5432:5432
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  service:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    image: zerowinner/transtech-service
+    restart: always
+    ports:
+      - 8080:8080
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
