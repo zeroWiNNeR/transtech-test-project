@@ -44,7 +44,7 @@ public class TruckController {
             @RequestBody Truck truck
     ) {
         BeanUtils.copyProperties(truck, truckFromDb, "id");
-        return new ResponseEntity<>(truckRepository.save(truck), HttpStatus.OK);
+        return new ResponseEntity<>(truckRepository.save(truckFromDb), HttpStatus.OK);
     }
 
     @DeleteMapping
